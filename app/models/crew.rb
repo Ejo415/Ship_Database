@@ -1,3 +1,3 @@
 class Crew
-    belongs to :ship
+    belongs_to :ship
 end
