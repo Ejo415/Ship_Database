@@ -4,7 +4,7 @@ class UsersController < ApplicationController
         if !logged_in?
             erb :'users/signup'
         else
-            redirect to '/index'
+            redirect to '/ships'
         end
     end
 
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
             @user = User.new(:username => params[:username], :password => params[:password])
             @user.save
             session[:user_id] = @user.id 
-            redirect to '/index'
+            redirect to '/ships'
         end
     end
 
