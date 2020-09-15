@@ -1,4 +1,17 @@
 <!doctype html>
 <html>
 <h2>Welcome to Fleet Command</h2>
-<p>Please signin or register your new clearance below:</p>
+<p>Please sign in or register your new clearance below:</p><nav>
+  
+  
+  <% if logged_in? %>
+
+   redirect to '/index'
+
+  <% else %>
+    <a href="/signup">Register Clearance</a>
+    <a href="/login"> Sign In </a>
+  <%end %>
+
+</nav>
+</html>
