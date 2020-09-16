@@ -6,4 +6,10 @@ class ShipsController < ApplicationController
         erb :'ships/index'
     end
 
+    get '/ships/new' do
+        erb :'ships/new/'
+    end
+
+
+
 end
