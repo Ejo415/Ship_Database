@@ -12,8 +12,19 @@ class ApplicationController < Sinatra::Base
   get "/" do
     erb :new_welcome
   end
+  
+  get "/error" do
+    erb :error
+  end
+
 
   helpers do
+
+    def redirect_if_not_logged_in
+      if !logged_in?
+        redirect to "/error"
+      end
+    end
 
     def logged_in?
       !!current_user
