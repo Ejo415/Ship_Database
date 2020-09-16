@@ -1,0 +1,17 @@
+<h1>Edit a Ship</h1>
+
+<form action="/ships" method="POST">
+  <label> Ship Name </label>
+  <input type="text" name="name" value="<%= @ship.name %>"> </br>
+
+  <label> Ship Class </label>
+  <input type="text" name="klass" value="<%= @ship.klass %>"> </br>
+
+  <label> Ship Registry </label>
+  <input type="text" name="registry" value="<%= @ship.registry %>"> </br>
+
+  <label> Ship Affiliation </label>
+  <input type="text" name="affiliation" value="<%= @ship.affiliation %>"> </br>
+
+  <input type="submit" value="Edit">
+</form>
