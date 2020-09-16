@@ -2,3 +2,15 @@
 <h2> Fleet Disposition </h2>
 
 <p>Hello Admiral</p>
+
+<p>Fleet Roster</p>
+
+<% @ships.each do |ship| %>
+  <div>
+   <a href="/ships/<%= ship.id %>" > <li><%= ship.name %></li>
+  </div>
+<% end %>
+
+<br>
+
+<a href="/ships/new"> Add a Ship to your Fleet </a>
