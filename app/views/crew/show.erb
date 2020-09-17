@@ -1,0 +1,11 @@
+<h1><%= @crew.name %></h1>
+
+<p>Rank:<%= @crew.rank %></p>
+
+<p>Species:<%= @crew.species %></p>
+
+<a href=<%="/crew/#{@crew.id}/edit"%>><button>Edit</button></a>
+<form action="/crew/<%=@crew.id%>" method="POST">
+<input type="hidden" name="_method" value="delete">
+<input type="submit" value="Delete">
+</form>
