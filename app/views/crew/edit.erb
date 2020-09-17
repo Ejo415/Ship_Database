@@ -1,0 +1,18 @@
+<h1>Edit a Crew Member</h1>
+
+<form action="/crew/<%=@crew.id%>" method="POST">
+<input type="hidden" name="_method" value="patch">
+  <label> Name </label>
+  <input type="text" name="name" value="<%= @crew.name %>"> </br>
+
+  <label> Rank </label>
+  <input type="text" name="klass" value="<%= @crew.klass %>"> </br>
+
+  <label> Species </label>
+  <input type="text" name="registry" value="<%= @crew.registry %>"> </br>
+
+  <label> Affiliation </label>
+  <input type="text" name="affiliation" value="<%= @crew.affiliation %>"> </br>
+
+  <input type="submit" value="Edit">
+</form>
