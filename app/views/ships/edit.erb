@@ -1,6 +1,7 @@
 <h1>Edit a Ship</h1>
 
-<form action="/ships" method="POST">
+<form action="/ships/<%=@ship.id%>" method="POST">
+<input type="hidden" name="_method" value="patch">
   <label> Ship Name </label>
   <input type="text" name="name" value="<%= @ship.name %>"> </br>
 
