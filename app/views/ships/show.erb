@@ -4,6 +4,10 @@
 
 <p>Registry:<%= @ship.registry %></p>
 
-<a href=<%="ships/#{@ship.id}/edit"%>><button>Edit</button></a>
+<a href=<%="/ships/#{@ship.id}/edit"%>><button>Edit</button></a>
+<form action="/ships/<%=@ship.id%>" method="POST">
+<input type="hidden" name="_method" value="delete">
+<input type="submit" value="Delete">
+</form>
 
 <h2> CREW </h2>
