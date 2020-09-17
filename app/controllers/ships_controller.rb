@@ -28,9 +28,14 @@ class ShipsController < ApplicationController
         redirect_if_not_logged_in
         @ship = Ship.find_by_id(params[:id])
         erb :"ships/edit"
-        
     end
 
+    patch '/ship/:id' do
+        redirect_if_not_logged_in
+        ship = Ship.find_by_id(params[:id])
+        ship.update(name: params[:name], klass: params[:klass], registry: params[:registry], affiliation: params[:affiliation])
+        redirect "/ships/#{ship.id}"
+    end
 
 
 
