@@ -2,7 +2,7 @@ class CrewController < ApplicationController
     
     get '/crew' do
         redirect_if_not_logged_in
-        @ships = Ship.all
+        @crew = Crew.all
         erb :'crew/index'
     end
 
