@@ -4,10 +4,22 @@
 
 <p>Species:<%= @crew.species %></p>
 
+<h2>Ship Assignments</h2>
+
+ <a href="/ships/<%= @crew.ship.id %>" ><%= @crew.ship.name %>
+
+<br>
+<br>
+  
+
+
 <a href=<%="/crew/#{@crew.id}/edit"%>><button>Edit</button></a>
 <form action="/crew/<%=@crew.id%>" method="POST">
 <input type="hidden" name="_method" value="delete">
 <input type="submit" value="Delete">
 </form>
+
+<br>
+<br>
 
 <a href="/"> Home </a>
