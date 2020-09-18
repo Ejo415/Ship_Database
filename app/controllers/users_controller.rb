@@ -9,13 +9,13 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do
-        if params[:username] == "" || params[:password] == ""
-            redirect to '/signup'
-        else
             @user = User.new(:username => params[:username], :password => params[:password])
-            @user.save
+            if @user.save
             session[:user_id] = @user.id 
             redirect to '/ships'
+           else
+            @errors = @user.errors.full_messages.uniq
+            erb :'users/signup'
         end
     end
 
