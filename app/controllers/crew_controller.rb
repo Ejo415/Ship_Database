@@ -14,26 +14,29 @@ class CrewController < ApplicationController
     post '/crew' do
         redirect_if_not_logged_in
         #binding.pry
-        Crew.create(name: params[:name], rank: params[:rank], species: params[:species], affiliation: params[:affiliation])
+        Crew.create(name: params[:name], rank: params[:rank], species: params[:species], affiliation: params[:affiliation], ship_id: params[:ship_id])
         redirect to '/crew'
     end
 
     get '/crew/:id' do
         redirect_if_not_logged_in
+        binding.pry
         @crew = Crew.find_by_id(params[:id])
+        @ship = Ship.all
         erb :'crew/show'
     end
 
     get '/crew/:id/edit' do
         redirect_if_not_logged_in
         @crew = Crew.find_by_id(params[:id])
+        @ship = Ship.all
         erb :"crew/edit"
     end
 
     patch '/crew/:id' do
         redirect_if_not_logged_in
         crew = Crew.find_by_id(params[:id])
-        crew.update(name: params[:name], rank: params[:rank], species: params[:species], affiliation: params[:affiliation])
+        crew.update(name: params[:name], rank: params[:rank], species: params[:species], affiliation: params[:affiliation], ship_id: params[:ship_id])
         redirect "/crew/#{crew.id}"
     end
 
