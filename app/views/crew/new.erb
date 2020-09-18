@@ -14,6 +14,13 @@
   <input type="text" name="affiliation"> </br>
 
   <input type="submit" value="Create">
+
+   <h3>Choose an Existing Ship</h3>
+  <% @ship.each do |ship| %>
+      <input type="radio" name="ship_id" id="<%= ship.id %>" value="<%= ship.id %>" <%='checked' if @crew.ships == ship %>><%= ship.name %></input><br>
+  <% end %>
+  <br>
+  
 </form>
 
 <a href="/"> Home </a>
