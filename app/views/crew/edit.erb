@@ -16,11 +16,13 @@
 
  
 
-   <h3>Choose an Existing Ship</h3>
+   <h2>Choose an Existing Ship</h2>
   <% @ship.each do |ship| %>
-      <input type="radio" name="ship_id" id="<%= ship.id %>" value="<%= ship.id %>" <%='checked' if @crew.ships == ship %>><%= ship.name %></input><br>
+      <input type="radio" name="ship_id" id="<%= ship.id %>" value="<%= ship.id %>" <%='checked' if @crew.ship == ship %>><%= ship.name %></input><br>
   <% end %>
   <br>
+
+  <input type="submit" value="Edit">
   
 </form>
 
