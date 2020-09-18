@@ -3,12 +3,27 @@
 <p><%= @ship.klass %> Class Starship</p>
 
 <p>Registry:<%= @ship.registry %></p>
-
+<%if @ship.user == current_user%>
 <a href=<%="/ships/#{@ship.id}/edit"%>><button>Edit</button></a>
 <form action="/ships/<%=@ship.id%>" method="POST">
 <input type="hidden" name="_method" value="delete">
 <input type="submit" value="Delete">
 </form>
+
+<%else %>
+<p>YOU DO NOT HAVE AUTHORIZATION TO EDIT THIS</p>
+<%end%>
+
+<h2>Crew:</h2>
+
+<% @ship.crews.each do |crew| %>
+  <div>
+   <a href="/crew/<%= crew.id %>" > <li><%= crew.name %></li>
+  </div>
+<% end %>
+
+<br>
+<br>
 
 <a href="/"> Home </a>
 
