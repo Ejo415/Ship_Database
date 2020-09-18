@@ -1,13 +1,17 @@
 <!doctype html>
 <html>
+<% if logged_in?%>
 <a href="/logout"> Log Out </a>
+<%end%>
 <h2>Welcome to Fleet Command</h2>
+
 
   
   
   <% if logged_in? %>
     <p>Welcome, <%=current_user.username %></p>
-    <a href="/ships"> Fleet Dispoistion </a>
+    <a href="/ships"> Fleet Disposition </a>
+    <br>
     <a href="/crew"> Crew Roster </a>
     
     
@@ -18,6 +22,7 @@
 
   
     <a href="/signup">Register Clearance</a>
+    <br>
     <a href="/login"> Sign In </a>
   <%end %>
 
