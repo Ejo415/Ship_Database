@@ -16,7 +16,10 @@ class ShipsController < ApplicationController
     post '/ships' do
         redirect_if_not_logged_in
         #binding.pry
-        ship = Ship.new(name: params[:name], klass: params[:klass], registry: params[:registry], affiliation: params[:affiliation], user_id: current_user.id)
+        user = current_user
+        #binding.pry
+        ship = user.ships.build(name: params[:name], klass: params[:klass], registry: params[:registry], affiliation: params[:affiliation])
+        
         if ship.save 
         #binding.pry
         redirect to '/ships'
@@ -41,7 +44,7 @@ class ShipsController < ApplicationController
     patch '/ships/:id' do
         redirect_if_not_logged_in
         ship = Ship.find_by_id(params[:id])
-        if current_user.id = ship.user_id
+        if current_user.id == ship.user_id
         ship.update(name: params[:name], klass: params[:klass], registry: params[:registry], affiliation: params[:affiliation])
         redirect "/ships/#{ship.id}"
         
@@ -51,8 +54,10 @@ end
     delete '/ships/:id' do
         redirect_if_not_logged_in
         ship = Ship.find_by_id(params[:id]) 
+        if current_user.id == ship.user_id        
         ship.destroy
         redirect '/ships'
+        end
     end
 
 

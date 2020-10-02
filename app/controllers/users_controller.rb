@@ -33,7 +33,8 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect to '/ships'
         else
-            redirect to '/login'
+            @errors = "Username and/or Password is incorrect."
+            erb :'/users/login'
         end
     end
 
@@ -43,6 +44,13 @@ class UsersController < ApplicationController
             redirect to '/login'
         else
             redirect to '/'
+        end
+    end
+
+    get '/users' do
+        if logged_in?
+            @users = User.all
+            erb :'users/index'
         end
     end
 

@@ -1,0 +1,14 @@
+<% @users.each do |user| %>
+  <div>
+   <a href="/users/<%= user.username %>" > <li><%= user.username %> - <%= user.ships.count %></li>
+  </div>
+<% end %>
+
+<br>
+
+
+
+<br>
+<br>
+
+<a href="/"> Home </a>

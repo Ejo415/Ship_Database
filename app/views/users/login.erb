@@ -1,4 +1,9 @@
 <h1>Login to Starfleet Fleet Database</h1>
+
+  <% if @errors %>
+    <p><%= @errors %></p>
+  <% end %>
+
 <form method="post" action="/login">
   <input type="text" name="username" placeholder="Username:">
   <input type="text" name="password" placeholder="Password:">
